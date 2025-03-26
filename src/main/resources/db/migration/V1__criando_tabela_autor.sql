@@ -1,0 +1,5 @@
+CREATE TABLE tb_autor (
+    ID BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR (250) NOT NULL,
+    nacionalidade VARCHAR (250) NOT NULL
+);

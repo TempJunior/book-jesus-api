@@ -1,0 +1,37 @@
+package com.tempjunior.book_jesus_application.model.usuario;
+
+import com.tempjunior.book_jesus_application.dto.usuario_dto.UsuarioCadastroDTO;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDate;
+
+@Entity
+@Table(name = "tb_usuario")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class Usuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nome;
+    private String email;
+    private Long telefone;
+
+    @CreationTimestamp
+    @Column(name = "data_registro")
+    private LocalDate dataDeRegistro;
+
+    //Construtor que recebe o DTO para cadastro de novo usuario
+    public Usuario (UsuarioCadastroDTO dados){
+        this.nome = dados.nome();
+        this.email = dados.email();
+        this.telefone = dados.telefone();
+    }
+}
