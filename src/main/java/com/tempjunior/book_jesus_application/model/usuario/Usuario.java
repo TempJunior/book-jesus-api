@@ -1,5 +1,6 @@
 package com.tempjunior.book_jesus_application.model.usuario;
 
+import com.tempjunior.book_jesus_application.dto.usuario_dto.DetalhesAtualizacaoUsuario;
 import com.tempjunior.book_jesus_application.dto.usuario_dto.UsuarioCadastroDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -25,7 +26,7 @@ public class Usuario {
     private Long telefone;
 
     @CreationTimestamp
-    @Column(name = "data_registro")
+    @Column(name = "data_de_registro")
     private LocalDate dataDeRegistro;
 
     //Construtor que recebe o DTO para cadastro de novo usuario
@@ -34,4 +35,14 @@ public class Usuario {
         this.email = dados.email();
         this.telefone = dados.telefone();
     }
+
+    public void atualizarDados(DetalhesAtualizacaoUsuario dados){
+        if (dados.email() != null){
+            this.email = dados.email();
+        }
+        if (dados.telefone() != null){
+            this.telefone = dados.telefone();
+        }
+    }
+
 }
