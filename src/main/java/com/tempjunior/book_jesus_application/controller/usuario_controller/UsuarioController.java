@@ -45,5 +45,4 @@ public class UsuarioController {
 
         return ResponseEntity.ok().body(user);
     }
-
 }

@@ -46,7 +46,6 @@ public class AutorController {
         return ResponseEntity.created(uri).body(detalhamento);
     }
 
-
     /**
     * Traz um pageable de todos autores cadastrados. Apenas 10 por pagina.
     * Para mudar a pagina precisa especificar na URL a page

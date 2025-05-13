@@ -1,13 +1,11 @@
 package com.tempjunior.book_jesus_application.model.emprestimo;
 
-import com.tempjunior.book_jesus_application.dto.emprestimo_dto.EmprestimoCadastroDTO;
 import com.tempjunior.book_jesus_application.model.livro.Livro;
 import com.tempjunior.book_jesus_application.model.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
@@ -47,5 +45,4 @@ public class Emprestimo {
         this.livro = livro;
         this.status = StatusEmprestimo.ATIVO;
     }
-
 }
