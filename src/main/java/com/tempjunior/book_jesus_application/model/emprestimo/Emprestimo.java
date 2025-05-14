@@ -18,6 +18,7 @@ import java.time.LocalDate;
 public class Emprestimo {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEmprestimo;
 
@@ -45,4 +46,10 @@ public class Emprestimo {
         this.livro = livro;
         this.status = StatusEmprestimo.ATIVO;
     }
+
+    public void finalizarEmprestimo(Long id){
+        this.data_devolucao = LocalDate.now();
+        this.status = StatusEmprestimo.FINALIZADO;
+    }
+
 }
