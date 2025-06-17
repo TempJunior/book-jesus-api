@@ -31,21 +31,28 @@ public class EmprestimoService {
 
 
     @Transactional
-    public DetalhamentoRegistroEmprestimo registrarNovoEmprestimo(EmprestimoCadastroDTO dados){
+    public DetalhamentoRegistroEmprestimo registrarNovoEmprestimo(EmprestimoCadastroDTO dados) throws Exception {
         Usuario usuario = usuarioRepository.findById(dados.idUsuario())
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
-        Livro livro = livroRepository.findById(dados.idLivro())
+        long emprestimosAtivos = emprestimoRepository.countEmprestimosAtivos(usuario.getId());
+        if (emprestimosAtivos >= 3) {
+            throw new Exception("Usuário já possui 3 empréstimos.");
+        }
+
+        Livro livro = livroRepository
+                .findByIdForUpdate(dados.idLivro())
                 .orElseThrow(() -> new RuntimeException("Livro não encontrado"));
 
-        Emprestimo emprestimo = new Emprestimo(usuario, livro);
-
-        if(usuario.getTotalEmprestimos >= 3 || livro.getQuantidadeEmEstoque() > 0){
-            int i = livro.getQuantidadeEmEstoque() - 1;
-            emprestimo = emprestimoRepository.save(emprestimo);
-        }else {
-            System.out.println("Quantidade de emprestimos maior que 3 ou livros sem estoque.");
+        if (livro.getQuantidadeEmEstoque() <= 0) {
+            throw new Exception("Não temos livros em estoque.");
         }
+
+        livro.setQuantidadeEmEstoque(livro.getQuantidadeEmEstoque() - 1);
+        livroRepository.save(livro);
+
+        Emprestimo emprestimo = new Emprestimo(usuario, livro);
+        emprestimo = emprestimoRepository.save(emprestimo);
 
         return new DetalhamentoRegistroEmprestimo(emprestimo);
     }

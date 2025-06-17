@@ -16,4 +16,5 @@ public interface LivroRepository extends JpaRepository<Livro, Long> {
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     @Query("SELECT l FROM Livro l WHERE l.id = :id")
     Optional<Livro> findByIdForUpdate(@Param("id") Long id);
+
 }

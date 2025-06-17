@@ -52,7 +52,6 @@ public class LivroService {
         Livro livroID = livroRepository.findById(id).orElseThrow(()
                 -> new Exception("Livro não encontrado"));
 
-
         return new DetalhamentoDeListagemLivro(livroID);
     }
 
@@ -72,13 +71,10 @@ public class LivroService {
         return new DetalhamentoCadastroLivro(livro);
     }
 
-    public void deletarLivro(Long id) throws Exception{
+    public void deletarLivro(Long id) throws Exception {
         var livro = livroRepository.findById(id)
                 .orElseThrow(() -> new Exception("Livro não encontrado"));
 
         livroRepository.delete(livro);
     }
-
-
-
 }

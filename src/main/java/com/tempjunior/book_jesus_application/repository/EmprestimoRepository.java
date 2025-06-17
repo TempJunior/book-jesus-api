@@ -17,4 +17,11 @@ public interface EmprestimoRepository extends JpaRepository<Emprestimo, Long> {
                                   @Param("usuario") Usuario usuario,
                                   Pageable pageable);
 
+    @Query("""
+      SELECT COUNT(e)
+        FROM Emprestimo e
+       WHERE e.usuario.id = :usuarioId
+         AND e.data_devolucao IS NULL
+    """)
+    long countEmprestimosAtivos(@Param("usuarioId") Long usuarioId);
 }

@@ -29,7 +29,6 @@ public class Usuario {
     @Column(name = "data_de_registro")
     private LocalDate dataDeRegistro;
 
-    //Construtor que recebe o DTO para cadastro de novo usuario
     public Usuario (UsuarioCadastroDTO dados){
         this.nome = dados.nome();
         this.email = dados.email();

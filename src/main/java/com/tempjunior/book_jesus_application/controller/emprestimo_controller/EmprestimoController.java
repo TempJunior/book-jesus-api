@@ -23,7 +23,7 @@ public class EmprestimoController {
     private EmprestimoService service;
 
     @PostMapping
-    public ResponseEntity<DetalhamentoRegistroEmprestimo> registrarNovoEmprestimo(@RequestBody @Valid EmprestimoCadastroDTO dados, UriComponentsBuilder uriBuilder){
+    public ResponseEntity<DetalhamentoRegistroEmprestimo> registrarNovoEmprestimo(@RequestBody @Valid EmprestimoCadastroDTO dados, UriComponentsBuilder uriBuilder) throws Exception {
         var detalhamento = service.registrarNovoEmprestimo(dados);
 
         URI uri = uriBuilder.path("/autor/{id}").buildAndExpand(detalhamento.id()).toUri();
@@ -45,6 +45,7 @@ public class EmprestimoController {
             Pageable pageable) throws Exception {
 
         Page<DetalhamentoListagemEmprestimo> resultado = service.buscarPorFiltro(livroId, usuarioId, pageable);
+
         return ResponseEntity.ok(resultado);
     }
 

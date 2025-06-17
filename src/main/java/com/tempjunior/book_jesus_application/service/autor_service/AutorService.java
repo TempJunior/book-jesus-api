@@ -38,7 +38,6 @@ public class AutorService {
     @Transactional
     public DetalhamentoDeCadastroAutor cadastrarNovoAutor(AutorCadastroDTO dados){
         Autor autor = new Autor(dados);
-        // Salva o autor e garante que o ID seja preenchido
         autor = autorRepository.save(autor);
         return new DetalhamentoDeCadastroAutor(autor);
     }
@@ -69,7 +68,7 @@ public class AutorService {
     }
 
     /**
-     * Busca auto por nome. (Verificar o metodo no controller.). O nome é passado por parametro.
+     * Busca autor por nome. (Verificar o metodo no controller.). O nome é passado por parametro.
      * Metodo @FindByNome. Criado no @AutorRepository, procura por nome do autor.
     * */
     public DetalhamentoDeListagemAutores buscarAutorPorNome(String nome){
