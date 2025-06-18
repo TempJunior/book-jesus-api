@@ -1,5 +1,7 @@
 package com.tempjunior.book_jesus_application.infra.security.auth;
 
+import com.tempjunior.book_jesus_application.model.usuario.UserAccount;
+import com.tempjunior.book_jesus_application.model.usuario.UserDetailsImp;
 import com.tempjunior.book_jesus_application.repository.UserAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,6 +15,9 @@ public class AuthenticationService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return repository.findByEmail(username);
+        UserAccount user = repository.findByEmail(username)
+                .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
+
+        return new UserDetailsImp(user);
     }
 }

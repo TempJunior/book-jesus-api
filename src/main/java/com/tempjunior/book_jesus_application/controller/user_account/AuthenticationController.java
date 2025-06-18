@@ -1,6 +1,10 @@
 package com.tempjunior.book_jesus_application.controller.user_account;
 
 import com.tempjunior.book_jesus_application.dto.usuario_dto.user_account.UserAccountRegisterDTO;
+import com.tempjunior.book_jesus_application.infra.security.tokens.DataTokenJWT;
+import com.tempjunior.book_jesus_application.infra.security.tokens.TokenService;
+import com.tempjunior.book_jesus_application.model.usuario.UserAccount;
+import com.tempjunior.book_jesus_application.model.usuario.UserDetailsImp;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,11 +22,17 @@ public class AuthenticationController {
     @Autowired
     private AuthenticationManager manager;
 
+    @Autowired
+    private TokenService tokenService;
+
     @PostMapping
     public ResponseEntity<?> efetuarLogin(@RequestBody @Valid UserAccountRegisterDTO userDto){
-        var token = new UsernamePasswordAuthenticationToken(userDto.email(), userDto.senha());
-        var auth = manager.authenticate(token);
+        var authToken = new UsernamePasswordAuthenticationToken(userDto.email(), userDto.password());
+        var auth = manager.authenticate(authToken);
+        var userDetails = (UserDetailsImp) auth.getPrincipal();
 
-        return ResponseEntity.ok().build();
+        var token = tokenService.generatedToken(userDetails.getUserAccount());
+
+        return ResponseEntity.ok(new DataTokenJWT(token));
     }
 }

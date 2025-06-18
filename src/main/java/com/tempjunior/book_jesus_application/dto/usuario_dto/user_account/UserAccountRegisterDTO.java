@@ -9,10 +9,10 @@ public record UserAccountRegisterDTO(
         String email,
         @NotBlank
         @Length(max = 250)
-        String senha
+        String password
 ) {
 
     public UserAccountRegisterDTO(UserAccount dados) {
-        this(dados.getEmail(), dados.getSenha());
+        this(dados.getEmail(), dados.getPassword());
     }
 }

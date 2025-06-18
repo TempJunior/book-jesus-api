@@ -19,11 +19,12 @@ public class UserAccount {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String email;
-    private String senha;
+    @Column(name = "senha")
+    private String password;
 
-    public UserAccount(UserAccountRegisterDTO dados){
+    public UserAccount(UserAccountRegisterDTO dados) {
         this.email = dados.email();
-        this.senha = dados.senha();
+        this.password = dados.password();
     }
 
 }

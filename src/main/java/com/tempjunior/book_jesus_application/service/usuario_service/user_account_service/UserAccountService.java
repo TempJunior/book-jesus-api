@@ -20,8 +20,8 @@ public class UserAccountService {
     @Transactional
     public UserAccountRegisterDTO salvar(UserAccountRegisterDTO user){
         var userAccount = new UserAccount(user);
-        String hash = encoder.encode(userAccount.getSenha());
-        userAccount.setSenha(hash);
+        String hash = encoder.encode(userAccount.getPassword());
+        userAccount.setPassword(hash);
         repository.save(userAccount);
 
         return new UserAccountRegisterDTO(userAccount);
