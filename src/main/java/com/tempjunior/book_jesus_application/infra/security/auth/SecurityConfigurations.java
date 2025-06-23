@@ -33,6 +33,7 @@ public class SecurityConfigurations {
                 .authorizeHttpRequests(req ->
                 {
                     req.requestMatchers("/login").permitAll();
+                    req.requestMatchers("/account").permitAll();
                     req.anyRequest().authenticated();
                 })
                 .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)
