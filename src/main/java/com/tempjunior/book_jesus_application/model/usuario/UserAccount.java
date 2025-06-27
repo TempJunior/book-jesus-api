@@ -22,9 +22,16 @@ public class UserAccount {
     @Column(name = "senha")
     private String password;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    private Usuario user;
+
     public UserAccount(UserAccountRegisterDTO dados) {
         this.email = dados.email();
         this.password = dados.password();
+        this.user = new Usuario();
+        this.user.setEmail(dados.email());
+        this.user.setNome(dados.name());
+        this.user.setTelefone(dados.telefone());
     }
-
 }

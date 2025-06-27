@@ -1,4 +1,4 @@
 package com.tempjunior.book_jesus_application.infra.security.tokens;
 
-public record DataTokenJWT(String token) {
+public record DataTokenJWT(String token, String nome, String email, Long telefone) {
 }

@@ -4,18 +4,15 @@ import com.tempjunior.book_jesus_application.model.usuario.UserAccount;
 import jakarta.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
 
-public record UserAccountRegisterDTO(
+public record UserAccountLoginDTO(
+
         @NotBlank
         String email,
         @NotBlank
         @Length(max = 250)
-        String password,
-        @NotBlank
-        String name,
-        Long telefone
+        String password
 ) {
-
-    public UserAccountRegisterDTO(UserAccount dados) {
-        this(dados.getEmail(), dados.getPassword(), dados.getUser().getNome(), dados.getUser().getTelefone());
+    public UserAccountLoginDTO(UserAccount dados){
+        this(dados.getEmail(), dados.getPassword());
     }
 }

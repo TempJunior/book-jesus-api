@@ -1,5 +1,6 @@
 package com.tempjunior.book_jesus_application.controller.user_account;
 
+import com.tempjunior.book_jesus_application.dto.usuario_dto.user_account.UserAccountLoginDTO;
 import com.tempjunior.book_jesus_application.dto.usuario_dto.user_account.UserAccountRegisterDTO;
 import com.tempjunior.book_jesus_application.infra.security.tokens.DataTokenJWT;
 import com.tempjunior.book_jesus_application.infra.security.tokens.TokenService;
@@ -26,13 +27,14 @@ public class AuthenticationController {
     private TokenService tokenService;
 
     @PostMapping
-    public ResponseEntity<?> efetuarLogin(@RequestBody @Valid UserAccountRegisterDTO userDto){
+    public ResponseEntity<?> efetuarLogin(@RequestBody @Valid UserAccountLoginDTO userDto){
         var authToken = new UsernamePasswordAuthenticationToken(userDto.email(), userDto.password());
         var auth = manager.authenticate(authToken);
         var userDetails = (UserDetailsImp) auth.getPrincipal();
+        var usuario = userDetails.getUserAccount();
 
         var token = tokenService.generatedToken(userDetails.getUserAccount());
 
-        return ResponseEntity.ok(new DataTokenJWT(token));
+        return ResponseEntity.ok(new DataTokenJWT(token, usuario.getUser().getNome(), usuario.getEmail(), usuario.getUser().getTelefone()));
     }
 }
