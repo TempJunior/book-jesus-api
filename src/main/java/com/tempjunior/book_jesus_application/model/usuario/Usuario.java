@@ -23,7 +23,7 @@ public class Usuario {
     private Long id;
     private String nome;
     private String email;
-    private Long telefone;
+    private String telefone;
 
     @CreationTimestamp
     @Column(name = "data_de_registro")

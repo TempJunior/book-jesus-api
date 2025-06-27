@@ -6,6 +6,6 @@ public record DetalhesAtualizacaoUsuario(
         @NotNull
         Long id,
         String email,
-        Long telefone
+        String telefone
 ) {
 }

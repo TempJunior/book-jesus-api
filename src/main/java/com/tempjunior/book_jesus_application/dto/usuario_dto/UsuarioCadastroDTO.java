@@ -10,6 +10,6 @@ public record UsuarioCadastroDTO(
         @NotBlank
         String email,
         @NotNull
-        Long telefone
+        String telefone
 ) {
 }

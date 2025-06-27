@@ -8,7 +8,7 @@ public record DetalhamentoCadastroUsuario(
         Long id,
         String nome,
         String email,
-        Long telefone,
+        String telefone,
         LocalDate dataDeRegistro
 ) {
     public DetalhamentoCadastroUsuario(Usuario usuario) {
