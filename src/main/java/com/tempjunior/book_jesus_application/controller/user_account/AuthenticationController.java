@@ -35,6 +35,6 @@ public class AuthenticationController {
 
         var token = tokenService.generatedToken(userDetails.getUserAccount());
 
-        return ResponseEntity.ok(new DataTokenJWT(token, usuario.getUser().getNome(), usuario.getEmail(), usuario.getUser().getTelefone()));
+        return ResponseEntity.ok(new DataTokenJWT(token, usuario.getId(),usuario.getUser().getNome(), usuario.getEmail(), usuario.getUser().getTelefone()));
     }
 }
