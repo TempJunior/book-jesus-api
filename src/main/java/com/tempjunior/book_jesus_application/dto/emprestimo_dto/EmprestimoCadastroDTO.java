@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 public record EmprestimoCadastroDTO(
         @NotNull
         Long idUsuario,
-        @NotNull
+        @NotNull(message = "Livro não pode estar null")
         Long idLivro
 ) {
 }

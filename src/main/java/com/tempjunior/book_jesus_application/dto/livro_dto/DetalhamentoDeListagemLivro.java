@@ -6,13 +6,14 @@ import com.tempjunior.book_jesus_application.model.livro.Livro;
 import java.time.Year;
 
 public record DetalhamentoDeListagemLivro(
-    String titulo,
-    String autor,
-    Categoria categoria,
-    Year anoDePublicacao,
-    Integer quantidadeEmEstoque
+        Long id,
+        String titulo,
+        String autor,
+        Categoria categoria,
+        Year anoDePublicacao,
+        Integer quantidadeEmEstoque
 ) {
-    public DetalhamentoDeListagemLivro(Livro livro){
-        this(livro.getTitulo(), livro.getAutor().getNome(), livro.getCategoria(), livro.getAnoDePublicacao(), livro.getQuantidadeEmEstoque());
+    public DetalhamentoDeListagemLivro(Livro livro) {
+        this(livro.getId(),livro.getTitulo(), livro.getAutor().getNome(), livro.getCategoria(), livro.getAnoDePublicacao(), livro.getQuantidadeEmEstoque());
     }
 }
