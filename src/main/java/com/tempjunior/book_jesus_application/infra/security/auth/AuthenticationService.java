@@ -1,7 +1,7 @@
 package com.tempjunior.book_jesus_application.infra.security.auth;
 
-import com.tempjunior.book_jesus_application.model.usuario.UserAccount;
-import com.tempjunior.book_jesus_application.model.usuario.UserDetailsImp;
+import com.tempjunior.book_jesus_application.model.UserAccount;
+import com.tempjunior.book_jesus_application.model.UserDetailsImp;
 import com.tempjunior.book_jesus_application.repository.UserAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

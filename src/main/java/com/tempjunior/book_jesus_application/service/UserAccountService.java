@@ -1,7 +1,7 @@
-package com.tempjunior.book_jesus_application.service.usuario_service.user_account_service;
+package com.tempjunior.book_jesus_application.service;
 
 import com.tempjunior.book_jesus_application.dto.usuario_dto.user_account.UserAccountRegisterDTO;
-import com.tempjunior.book_jesus_application.model.usuario.UserAccount;
+import com.tempjunior.book_jesus_application.model.UserAccount;
 import com.tempjunior.book_jesus_application.repository.UserAccountRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

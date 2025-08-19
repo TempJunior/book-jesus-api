@@ -1,6 +1,6 @@
 package com.tempjunior.book_jesus_application.dto.livro_dto;
 
-import com.tempjunior.book_jesus_application.model.categoria.Categoria;
+import com.tempjunior.book_jesus_application.model.Categoria;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

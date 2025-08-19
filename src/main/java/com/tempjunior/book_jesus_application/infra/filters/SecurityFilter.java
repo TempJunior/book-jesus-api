@@ -1,8 +1,7 @@
 package com.tempjunior.book_jesus_application.infra.filters;
 
 import com.tempjunior.book_jesus_application.infra.security.tokens.TokenService;
-import com.tempjunior.book_jesus_application.model.usuario.UserAccount;
-import com.tempjunior.book_jesus_application.model.usuario.UserDetailsImp;
+import com.tempjunior.book_jesus_application.model.UserDetailsImp;
 import com.tempjunior.book_jesus_application.repository.UserAccountRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-import java.util.Optional;
 
 @Component
 public class SecurityFilter extends OncePerRequestFilter {

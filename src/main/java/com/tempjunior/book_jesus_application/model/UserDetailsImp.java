@@ -1,4 +1,4 @@
-package com.tempjunior.book_jesus_application.model.usuario;
+package com.tempjunior.book_jesus_application.model;
 
 import org.springframework.security.core.CredentialsContainer;
 import org.springframework.security.core.GrantedAuthority;

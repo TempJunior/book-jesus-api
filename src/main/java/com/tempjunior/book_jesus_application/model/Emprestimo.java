@@ -1,7 +1,5 @@
-package com.tempjunior.book_jesus_application.model.emprestimo;
+package com.tempjunior.book_jesus_application.model;
 
-import com.tempjunior.book_jesus_application.model.livro.Livro;
-import com.tempjunior.book_jesus_application.model.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

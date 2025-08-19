@@ -1,9 +1,7 @@
-package com.tempjunior.book_jesus_application.model.livro;
+package com.tempjunior.book_jesus_application.model;
 
 import com.tempjunior.book_jesus_application.dto.livro_dto.DadosAtualizacaoLivro;
 import com.tempjunior.book_jesus_application.dto.livro_dto.LivroCadastroDTO;
-import com.tempjunior.book_jesus_application.model.autor.Autor;
-import com.tempjunior.book_jesus_application.model.categoria.Categoria;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,9 +1,9 @@
-package com.tempjunior.book_jesus_application.controller.emprestimo_controller;
+package com.tempjunior.book_jesus_application.controller;
 
 import com.tempjunior.book_jesus_application.dto.emprestimo_dto.DetalhamentoListagemEmprestimo;
 import com.tempjunior.book_jesus_application.dto.emprestimo_dto.DetalhamentoRegistroEmprestimo;
 import com.tempjunior.book_jesus_application.dto.emprestimo_dto.EmprestimoCadastroDTO;
-import com.tempjunior.book_jesus_application.service.emprestimo_service.EmprestimoService;
+import com.tempjunior.book_jesus_application.service.EmprestimoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

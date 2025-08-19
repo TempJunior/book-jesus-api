@@ -1,4 +1,4 @@
-package com.tempjunior.book_jesus_application.model.categoria;
+package com.tempjunior.book_jesus_application.model;
 
 public enum Categoria {
     ROMANCE,

@@ -1,6 +1,6 @@
 package com.tempjunior.book_jesus_application.dto.usuario_dto;
 
-import com.tempjunior.book_jesus_application.model.usuario.Usuario;
+import com.tempjunior.book_jesus_application.model.Usuario;
 
 import java.time.LocalDate;
 

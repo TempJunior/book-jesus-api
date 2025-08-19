@@ -1,10 +1,10 @@
-package com.tempjunior.book_jesus_application.service.usuario_service;
+package com.tempjunior.book_jesus_application.service;
 
 import com.tempjunior.book_jesus_application.dto.usuario_dto.DetalhamentoCadastroUsuario;
 import com.tempjunior.book_jesus_application.dto.usuario_dto.DetalhamentoDeListagemUsuario;
 import com.tempjunior.book_jesus_application.dto.usuario_dto.DetalhesAtualizacaoUsuario;
 import com.tempjunior.book_jesus_application.dto.usuario_dto.UsuarioCadastroDTO;
-import com.tempjunior.book_jesus_application.model.usuario.Usuario;
+import com.tempjunior.book_jesus_application.model.Usuario;
 import com.tempjunior.book_jesus_application.repository.UsuarioRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

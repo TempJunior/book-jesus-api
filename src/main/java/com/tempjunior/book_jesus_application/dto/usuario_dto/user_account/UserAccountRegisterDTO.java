@@ -1,6 +1,6 @@
 package com.tempjunior.book_jesus_application.dto.usuario_dto.user_account;
 
-import com.tempjunior.book_jesus_application.model.usuario.UserAccount;
+import com.tempjunior.book_jesus_application.model.UserAccount;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;

@@ -1,8 +1,8 @@
 package com.tempjunior.book_jesus_application.repository;
 
-import com.tempjunior.book_jesus_application.model.emprestimo.Emprestimo;
-import com.tempjunior.book_jesus_application.model.livro.Livro;
-import com.tempjunior.book_jesus_application.model.usuario.Usuario;
+import com.tempjunior.book_jesus_application.model.Emprestimo;
+import com.tempjunior.book_jesus_application.model.Livro;
+import com.tempjunior.book_jesus_application.model.Usuario;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

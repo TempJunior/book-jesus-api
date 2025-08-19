@@ -1,4 +1,4 @@
-package com.tempjunior.book_jesus_application.model.usuario;
+package com.tempjunior.book_jesus_application.model;
 
 import com.tempjunior.book_jesus_application.dto.usuario_dto.DetalhesAtualizacaoUsuario;
 import com.tempjunior.book_jesus_application.dto.usuario_dto.UsuarioCadastroDTO;

@@ -1,4 +1,4 @@
-package com.tempjunior.book_jesus_application.model.autor;
+package com.tempjunior.book_jesus_application.model;
 
 import com.tempjunior.book_jesus_application.dto.autor_dto.AutorCadastroDTO;
 import com.tempjunior.book_jesus_application.dto.autor_dto.DadosAtualizacaoAutor;

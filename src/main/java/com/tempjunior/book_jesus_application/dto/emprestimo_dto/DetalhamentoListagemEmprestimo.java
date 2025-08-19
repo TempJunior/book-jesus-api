@@ -1,9 +1,7 @@
 package com.tempjunior.book_jesus_application.dto.emprestimo_dto;
 
-import com.tempjunior.book_jesus_application.model.emprestimo.Emprestimo;
-import com.tempjunior.book_jesus_application.model.emprestimo.StatusEmprestimo;
-import com.tempjunior.book_jesus_application.model.livro.Livro;
-import com.tempjunior.book_jesus_application.model.usuario.Usuario;
+import com.tempjunior.book_jesus_application.model.Emprestimo;
+import com.tempjunior.book_jesus_application.model.StatusEmprestimo;
 
 import java.time.LocalDate;
 

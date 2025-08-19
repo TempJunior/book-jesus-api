@@ -1,12 +1,12 @@
-package com.tempjunior.book_jesus_application.service.livro_service;
+package com.tempjunior.book_jesus_application.service;
 
-import com.tempjunior.book_jesus_application.dto.autor_dto.DetalhamentoDeCadastroAutor;
 import com.tempjunior.book_jesus_application.dto.livro_dto.DadosAtualizacaoLivro;
 import com.tempjunior.book_jesus_application.dto.livro_dto.DetalhamentoCadastroLivro;
 import com.tempjunior.book_jesus_application.dto.livro_dto.DetalhamentoDeListagemLivro;
 import com.tempjunior.book_jesus_application.dto.livro_dto.LivroCadastroDTO;
-import com.tempjunior.book_jesus_application.model.autor.Autor;
-import com.tempjunior.book_jesus_application.model.livro.Livro;
+import com.tempjunior.book_jesus_application.infra.exceptions.LivroValidatorException;
+import com.tempjunior.book_jesus_application.model.Autor;
+import com.tempjunior.book_jesus_application.model.Livro;
 import com.tempjunior.book_jesus_application.repository.AutorRepository;
 import com.tempjunior.book_jesus_application.repository.LivroRepository;
 import jakarta.transaction.Transactional;
@@ -30,7 +30,7 @@ public class LivroService {
 
     @Transactional
     public DetalhamentoCadastroLivro cadastrarNovoLivro(LivroCadastroDTO dados){
-        Autor autor = autorRepository.findById(dados.autorId()).orElseThrow(() -> new RuntimeException("O autor não foi encontrado." +
+        Autor autor = autorRepository.findById(dados.autorId()).orElseThrow(() -> new LivroValidatorException("O autor não foi encontrado." +
                 "Verifique se o autor existe e passe o ID correto."));
 
         Livro livro = new Livro(dados, autor);
@@ -48,16 +48,16 @@ public class LivroService {
         return page;
     }
 
-    public DetalhamentoDeListagemLivro buscaPorId(Long id) throws Exception {
+    public DetalhamentoDeListagemLivro buscaPorId(Long id){
         Livro livroID = livroRepository.findById(id).orElseThrow(()
-                -> new Exception("Livro não encontrado"));
+                -> new LivroValidatorException("Livro não encontrado"));
 
         return new DetalhamentoDeListagemLivro(livroID);
     }
 
-    public DetalhamentoDeListagemLivro buscaPorNome(String nome) throws Exception{
+    public DetalhamentoDeListagemLivro buscaPorNome(String nome){
         Livro livroNome = Optional.ofNullable(livroRepository.findByTitulo(nome))
-                .orElseThrow(() -> new Exception("Livro com o nome " + nome + "não encontrado."));
+                .orElseThrow(() -> new LivroValidatorException("Livro com o nome " + nome + "não encontrado."));
 
         return new DetalhamentoDeListagemLivro(livroNome);
     }
@@ -71,9 +71,9 @@ public class LivroService {
         return new DetalhamentoCadastroLivro(livro);
     }
 
-    public void deletarLivro(Long id) throws Exception {
+    public void deletarLivro(Long id){
         var livro = livroRepository.findById(id)
-                .orElseThrow(() -> new Exception("Livro não encontrado"));
+                .orElseThrow(() -> new LivroValidatorException("Livro não encontrado"));
 
         livroRepository.delete(livro);
     }

@@ -1,7 +1,7 @@
 package com.tempjunior.book_jesus_application.dto.livro_dto;
 
-import com.tempjunior.book_jesus_application.model.categoria.Categoria;
-import com.tempjunior.book_jesus_application.model.livro.Livro;
+import com.tempjunior.book_jesus_application.model.Categoria;
+import com.tempjunior.book_jesus_application.model.Livro;
 
 import java.time.Year;
 

@@ -1,11 +1,13 @@
-package com.tempjunior.book_jesus_application.service.emprestimo_service;
+package com.tempjunior.book_jesus_application.service;
 
 import com.tempjunior.book_jesus_application.dto.emprestimo_dto.DetalhamentoListagemEmprestimo;
 import com.tempjunior.book_jesus_application.dto.emprestimo_dto.DetalhamentoRegistroEmprestimo;
 import com.tempjunior.book_jesus_application.dto.emprestimo_dto.EmprestimoCadastroDTO;
-import com.tempjunior.book_jesus_application.model.emprestimo.Emprestimo;
-import com.tempjunior.book_jesus_application.model.livro.Livro;
-import com.tempjunior.book_jesus_application.model.usuario.Usuario;
+import com.tempjunior.book_jesus_application.infra.exceptions.EmprestimoValidatorException;
+import com.tempjunior.book_jesus_application.infra.exceptions.UserNotFoundException;
+import com.tempjunior.book_jesus_application.model.Emprestimo;
+import com.tempjunior.book_jesus_application.model.Livro;
+import com.tempjunior.book_jesus_application.model.Usuario;
 import com.tempjunior.book_jesus_application.repository.EmprestimoRepository;
 import com.tempjunior.book_jesus_application.repository.LivroRepository;
 import com.tempjunior.book_jesus_application.repository.UsuarioRepository;
@@ -33,19 +35,19 @@ public class EmprestimoService {
     @Transactional
     public DetalhamentoRegistroEmprestimo registrarNovoEmprestimo(EmprestimoCadastroDTO dados) throws Exception {
         Usuario usuario = usuarioRepository.findById(dados.idUsuario())
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+                .orElseThrow(() -> new UserNotFoundException("Usuário não encontrado"));
 
         long emprestimosAtivos = emprestimoRepository.countEmprestimosAtivos(usuario.getId());
         if (emprestimosAtivos >= 3) {
-            throw new Exception("Usuário já possui 3 empréstimos.");
+            throw new EmprestimoValidatorException("Usuário já possui 3 empréstimos.");
         }
 
         Livro livro = livroRepository
                 .findByIdForUpdate(dados.idLivro())
-                .orElseThrow(() -> new RuntimeException("Livro não encontrado"));
+                .orElseThrow(() -> new EmprestimoValidatorException("Livro não encontrado"));
 
         if (livro.getQuantidadeEmEstoque() <= 0) {
-            throw new Exception("Não temos livros em estoque.");
+            throw new EmprestimoValidatorException("Não temos livros em estoque.");
         }
 
         livro.setQuantidadeEmEstoque(livro.getQuantidadeEmEstoque() - 1);
@@ -70,14 +72,14 @@ public class EmprestimoService {
         Livro livro = null;
         if (livroId != null) {
             livro = livroRepository.findById(livroId)
-                    .orElseThrow(() -> new Exception("Livro não encontrado."));
+                    .orElseThrow(() -> new EmprestimoValidatorException("Livro não encontrado."));
         }
 
         // Se o id do usuário for informado, busque a entidade correspondente
         Usuario usuario = null;
         if (usuarioId != null) {
             usuario = usuarioRepository.findById(usuarioId)
-                    .orElseThrow(() -> new Exception("Usuário não encontrado."));
+                    .orElseThrow(() -> new EmprestimoValidatorException("Usuário não encontrado."));
         }
 
         // Busca os empréstimos de acordo com os filtros e a paginação
@@ -90,7 +92,7 @@ public class EmprestimoService {
     @Transactional
     public DetalhamentoRegistroEmprestimo finalizarEmprestimo(Long id) throws Exception {
         var livro = emprestimoRepository.findById(id)
-                .orElseThrow(() -> new Exception("Emprestimo não encontrado"));
+                .orElseThrow(() -> new EmprestimoValidatorException("Emprestimo não encontrado"));
         livro.finalizarEmprestimo(id);
         emprestimoRepository.save(livro);
 

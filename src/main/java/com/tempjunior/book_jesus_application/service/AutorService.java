@@ -1,4 +1,4 @@
-package com.tempjunior.book_jesus_application.service.autor_service;
+package com.tempjunior.book_jesus_application.service;
 
 import com.tempjunior.book_jesus_application.dto.autor_dto.AutorCadastroDTO;
 import com.tempjunior.book_jesus_application.dto.autor_dto.DadosAtualizacaoAutor;
@@ -6,7 +6,7 @@ import com.tempjunior.book_jesus_application.dto.autor_dto.DetalhamentoDeCadastr
 import com.tempjunior.book_jesus_application.dto.autor_dto.DetalhamentoDeListagemAutores;
 import com.tempjunior.book_jesus_application.infra.exceptions.AutorAssociadoException;
 import com.tempjunior.book_jesus_application.infra.exceptions.AutorNaoEncontradoException;
-import com.tempjunior.book_jesus_application.model.autor.Autor;
+import com.tempjunior.book_jesus_application.model.Autor;
 import com.tempjunior.book_jesus_application.repository.AutorRepository;
 import com.tempjunior.book_jesus_application.repository.LivroRepository;
 import jakarta.transaction.Transactional;
@@ -16,7 +16,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.Optional;
 
@@ -61,7 +60,8 @@ public class AutorService {
      * Se não, lança uma exception personalizada de @AutorNaoEncontradoException
     * */
     public DetalhamentoDeListagemAutores buscarAutorPorId(Long id){
-        Autor autorId = autorRepository.findById(id).orElseThrow(() -> new AutorNaoEncontradoException("O autor não foi encontrado." +
+        Autor autorId = autorRepository.findById(id)
+                .orElseThrow(() -> new AutorNaoEncontradoException("O autor não foi encontrado." +
                 "Verifique se o autor existe e passe o ID correto."));
 
         return new DetalhamentoDeListagemAutores(autorId);

@@ -1,6 +1,6 @@
 package com.tempjunior.book_jesus_application.repository;
 
-import com.tempjunior.book_jesus_application.model.usuario.UserAccount;
+import com.tempjunior.book_jesus_application.model.UserAccount;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

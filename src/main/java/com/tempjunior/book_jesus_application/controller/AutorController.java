@@ -1,11 +1,11 @@
-package com.tempjunior.book_jesus_application.controller.autor_controller;
+package com.tempjunior.book_jesus_application.controller;
 
 import com.tempjunior.book_jesus_application.dto.autor_dto.AutorCadastroDTO;
 import com.tempjunior.book_jesus_application.dto.autor_dto.DadosAtualizacaoAutor;
 import com.tempjunior.book_jesus_application.dto.autor_dto.DetalhamentoDeCadastroAutor;
 import com.tempjunior.book_jesus_application.dto.autor_dto.DetalhamentoDeListagemAutores;
-import com.tempjunior.book_jesus_application.model.autor.Autor;
-import com.tempjunior.book_jesus_application.service.autor_service.AutorService;
+import com.tempjunior.book_jesus_application.model.Autor;
+import com.tempjunior.book_jesus_application.service.AutorService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

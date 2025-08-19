@@ -1,6 +1,6 @@
 package com.tempjunior.book_jesus_application.repository;
 
-import com.tempjunior.book_jesus_application.model.livro.Livro;
+import com.tempjunior.book_jesus_application.model.Livro;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
