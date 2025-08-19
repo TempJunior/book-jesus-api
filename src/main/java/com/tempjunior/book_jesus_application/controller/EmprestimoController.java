@@ -4,6 +4,7 @@ import com.tempjunior.book_jesus_application.dto.emprestimo_dto.DetalhamentoList
 import com.tempjunior.book_jesus_application.dto.emprestimo_dto.DetalhamentoRegistroEmprestimo;
 import com.tempjunior.book_jesus_application.dto.emprestimo_dto.EmprestimoCadastroDTO;
 import com.tempjunior.book_jesus_application.service.EmprestimoService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,6 +18,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/emprestimo")
+@SecurityRequirement(name = "bearer-key")
 public class EmprestimoController {
 
     @Autowired

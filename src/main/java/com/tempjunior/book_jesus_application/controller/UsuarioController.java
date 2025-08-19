@@ -5,6 +5,7 @@ import com.tempjunior.book_jesus_application.dto.usuario_dto.DetalhamentoDeLista
 import com.tempjunior.book_jesus_application.dto.usuario_dto.DetalhesAtualizacaoUsuario;
 import com.tempjunior.book_jesus_application.dto.usuario_dto.UsuarioCadastroDTO;
 import com.tempjunior.book_jesus_application.service.UsuarioService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,6 +19,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/user")
+@SecurityRequirement(name = "bearer-key")
 public class UsuarioController {
 
     @Autowired

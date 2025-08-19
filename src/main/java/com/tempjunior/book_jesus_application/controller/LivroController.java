@@ -6,6 +6,7 @@ import com.tempjunior.book_jesus_application.dto.livro_dto.DetalhamentoDeListage
 import com.tempjunior.book_jesus_application.dto.livro_dto.LivroCadastroDTO;
 import com.tempjunior.book_jesus_application.model.Livro;
 import com.tempjunior.book_jesus_application.service.LivroService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,6 +19,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/livro")
+@SecurityRequirement(name = "bearer-key")
 public class LivroController {
 
     @Autowired

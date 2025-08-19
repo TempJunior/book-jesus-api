@@ -87,7 +87,9 @@ public class AutorService {
     * */
     @Transactional
     public DetalhamentoDeCadastroAutor atualizarDadosAutor(DadosAtualizacaoAutor dados){
-        var autor = autorRepository.getReferenceById(dados.id());
+        var autor = autorRepository.findById(dados.id())
+                .orElseThrow(() -> new AutorNaoEncontradoException("Autor com id " + dados.id() + " não encontrado"));
+
         autor.atualizarDados(dados);
         autorRepository.save(autor);
 
