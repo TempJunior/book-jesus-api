@@ -1,8 +1,8 @@
 package com.tempjunior.book_jesus_application.infra.filters;
 
 import com.tempjunior.book_jesus_application.infra.security.tokens.TokenService;
-import com.tempjunior.book_jesus_application.model.UserDetailsImp;
-import com.tempjunior.book_jesus_application.repository.UserAccountRepository;
+import com.tempjunior.book_jesus_application.domain.model.UserDetailsImp;
+import com.tempjunior.book_jesus_application.domain.repository.UserAccountRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

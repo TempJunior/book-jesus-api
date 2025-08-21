@@ -1,9 +1,9 @@
 package com.tempjunior.book_jesus_application.controller;
 
-import com.tempjunior.book_jesus_application.dto.emprestimo_dto.DetalhamentoListagemEmprestimo;
-import com.tempjunior.book_jesus_application.dto.emprestimo_dto.DetalhamentoRegistroEmprestimo;
-import com.tempjunior.book_jesus_application.dto.emprestimo_dto.EmprestimoCadastroDTO;
-import com.tempjunior.book_jesus_application.service.EmprestimoService;
+import com.tempjunior.book_jesus_application.domain.dto.emprestimo_dto.DetalhamentoListagemEmprestimo;
+import com.tempjunior.book_jesus_application.domain.dto.emprestimo_dto.DetalhamentoRegistroEmprestimo;
+import com.tempjunior.book_jesus_application.domain.dto.emprestimo_dto.EmprestimoCadastroDTO;
+import com.tempjunior.book_jesus_application.domain.service.EmprestimoService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

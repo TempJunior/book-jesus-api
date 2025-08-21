@@ -1,8 +1,8 @@
 package com.tempjunior.book_jesus_application.infra.security.auth;
 
 import com.tempjunior.book_jesus_application.infra.filters.SecurityFilter;
-import com.tempjunior.book_jesus_application.model.UserDetailsImp;
-import com.tempjunior.book_jesus_application.repository.UserAccountRepository;
+import com.tempjunior.book_jesus_application.domain.model.UserDetailsImp;
+import com.tempjunior.book_jesus_application.domain.repository.UserAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -38,7 +38,7 @@ public class SecurityConfigurations {
                 .authorizeHttpRequests(req ->
                 {
                     req.requestMatchers("/login").permitAll();
-                    req.requestMatchers("/account").permitAll();
+                    req.requestMatchers("/account", "/user").permitAll();
                     req.requestMatchers("/swagger-ui.html").permitAll();
                     req.requestMatchers("/v3/api-docs/**", "swagger-ui/**").permitAll();
                     req.anyRequest().authenticated();

@@ -1,11 +1,11 @@
 package com.tempjunior.book_jesus_application.controller;
 
-import com.tempjunior.book_jesus_application.dto.autor_dto.AutorCadastroDTO;
-import com.tempjunior.book_jesus_application.dto.autor_dto.DadosAtualizacaoAutor;
-import com.tempjunior.book_jesus_application.dto.autor_dto.DetalhamentoDeCadastroAutor;
-import com.tempjunior.book_jesus_application.dto.autor_dto.DetalhamentoDeListagemAutores;
-import com.tempjunior.book_jesus_application.model.Autor;
-import com.tempjunior.book_jesus_application.service.AutorService;
+import com.tempjunior.book_jesus_application.domain.dto.autor_dto.AutorCadastroDTO;
+import com.tempjunior.book_jesus_application.domain.dto.autor_dto.DadosAtualizacaoAutor;
+import com.tempjunior.book_jesus_application.domain.dto.autor_dto.DetalhamentoDeCadastroAutor;
+import com.tempjunior.book_jesus_application.domain.dto.autor_dto.DetalhamentoDeListagemAutores;
+import com.tempjunior.book_jesus_application.domain.model.Autor;
+import com.tempjunior.book_jesus_application.domain.service.AutorService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

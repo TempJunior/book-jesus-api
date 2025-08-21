@@ -1,11 +1,13 @@
 package com.tempjunior.book_jesus_application.controller;
 
-import com.tempjunior.book_jesus_application.dto.usuario_dto.DetalhamentoCadastroUsuario;
-import com.tempjunior.book_jesus_application.dto.usuario_dto.DetalhamentoDeListagemUsuario;
-import com.tempjunior.book_jesus_application.dto.usuario_dto.DetalhesAtualizacaoUsuario;
-import com.tempjunior.book_jesus_application.dto.usuario_dto.UsuarioCadastroDTO;
-import com.tempjunior.book_jesus_application.service.UsuarioService;
+import com.tempjunior.book_jesus_application.domain.dto.usuario_dto.DetalhamentoCadastroUsuario;
+import com.tempjunior.book_jesus_application.domain.dto.usuario_dto.DetalhamentoDeListagemUsuario;
+import com.tempjunior.book_jesus_application.domain.dto.usuario_dto.DetalhesAtualizacaoUsuario;
+import com.tempjunior.book_jesus_application.domain.dto.usuario_dto.UsuarioCadastroDTO;
+import com.tempjunior.book_jesus_application.domain.service.MailSenderService;
+import com.tempjunior.book_jesus_application.domain.service.UsuarioService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,7 +28,7 @@ public class UsuarioController {
     private UsuarioService service;
 
     @PostMapping
-    public ResponseEntity<DetalhamentoCadastroUsuario> cadastrarUsuario(@RequestBody @Valid UsuarioCadastroDTO dados, UriComponentsBuilder uriBuilder){
+    public ResponseEntity<DetalhamentoCadastroUsuario> cadastrarUsuario(@RequestBody @Valid UsuarioCadastroDTO dados, UriComponentsBuilder uriBuilder) throws MessagingException {
         var detalhamento = service.cadastrarNovoUsuario(dados);
 
         URI uri = uriBuilder.path("/user/{id}").buildAndExpand(detalhamento.id()).toUri();

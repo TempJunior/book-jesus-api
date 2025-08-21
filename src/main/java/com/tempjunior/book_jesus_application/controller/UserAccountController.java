@@ -1,7 +1,7 @@
 package com.tempjunior.book_jesus_application.controller;
 
-import com.tempjunior.book_jesus_application.dto.usuario_dto.user_account.UserAccountRegisterDTO;
-import com.tempjunior.book_jesus_application.service.UserAccountService;
+import com.tempjunior.book_jesus_application.domain.dto.usuario_dto.user_account.UserAccountRegisterDTO;
+import com.tempjunior.book_jesus_application.domain.service.UserAccountService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

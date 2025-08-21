@@ -1,11 +1,11 @@
 package com.tempjunior.book_jesus_application.controller;
 
-import com.tempjunior.book_jesus_application.dto.livro_dto.DadosAtualizacaoLivro;
-import com.tempjunior.book_jesus_application.dto.livro_dto.DetalhamentoCadastroLivro;
-import com.tempjunior.book_jesus_application.dto.livro_dto.DetalhamentoDeListagemLivro;
-import com.tempjunior.book_jesus_application.dto.livro_dto.LivroCadastroDTO;
-import com.tempjunior.book_jesus_application.model.Livro;
-import com.tempjunior.book_jesus_application.service.LivroService;
+import com.tempjunior.book_jesus_application.domain.dto.livro_dto.DadosAtualizacaoLivro;
+import com.tempjunior.book_jesus_application.domain.dto.livro_dto.DetalhamentoCadastroLivro;
+import com.tempjunior.book_jesus_application.domain.dto.livro_dto.DetalhamentoDeListagemLivro;
+import com.tempjunior.book_jesus_application.domain.dto.livro_dto.LivroCadastroDTO;
+import com.tempjunior.book_jesus_application.domain.model.Livro;
+import com.tempjunior.book_jesus_application.domain.service.LivroService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
